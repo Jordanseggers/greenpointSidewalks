@@ -7,7 +7,7 @@ const times = [
   { value: 19, label: '7 pm'},
 ];
 
-const PriceSlider = () => {
+const TimeSlider = () => {
   return (
     <Box sx={{ mt: 5 }}>
       <Typography>Time of Day</Typography>
@@ -16,12 +16,14 @@ const PriceSlider = () => {
         max={19}
         defaultValue={9}
         valueLabelDisplay="auto"
-        marks={marks}
-        value={priceFilter}
+        marks={times}
+        value={9}
         onChange={() =>
-          
+          console.log('something changed')
         }
       />
     </Box>
   )
 }
+
+export default TimeSlider;

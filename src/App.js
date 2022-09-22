@@ -13,7 +13,7 @@ function App() {
   const map = useRef(null);
   const [lng, setLng] = useState(-73.951870);
   const [lat, setLat] = useState(40.730964);
-  const [zoom, setZoom] = useState(10);
+  const [zoom, setZoom] = useState(15);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -24,6 +24,8 @@ function App() {
     center: [lng, lat],
     zoom: zoom
     });
+
+    map.current.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
   });
 
   useEffect(() => {
@@ -33,7 +35,25 @@ function App() {
     setLat(map.current.getCenter().lat.toFixed(4));
     setZoom(map.current.getZoom().toFixed(2));
     });
+    
+    map.current.on('click', (e) => {
+      console.log(`A click event has occurred at ${e.lngLat}`);
+    });
+
+    map.current.on('mouseenter', ['pharmacy_at_noon', 'data-driven-circles' ], (e) => {
+      if (e.features.length) {
+        map.current.getCanvas().style.cursor = 'pointer';
+      }
+    })
+
+    map.current.on('mouseleave', ['pharmacy_at_noon', 'data-driven-circles' ], (e) => {
+      map.current.getCanvas().style.cursor = '';
+    })
+
   });
+
+  //  map.current.setLayoutProperty('pharmacy_at_noon', 'visibility', 'none');  turn off layer
+  //  map.current.setLayoutProperty('pharmacy_at_noon', 'visibility', 'visible'); turn on layer
 
   return (
     <div>
@@ -49,7 +69,7 @@ function App() {
         </Box>
       </div>
       <div>
-        <Sidebar {...{isOpen, setIsOpen}}/>
+        <Sidebar {...{isOpen, setIsOpen, map}}/>
       </div>
       <div ref={mapContainer} className="map-container" />
       <div className="zoom">
