@@ -1,5 +1,5 @@
 import { Box, Slider, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 
 const times = [
   { value: 9, label: '9 am' },
@@ -8,19 +8,22 @@ const times = [
 ];
 
 const TimeSlider = () => {
+const [selectedTime, setSelectedTime ] = useState(12);
+
   return (
     <Box sx={{ mt: 5 }}>
-      <Typography>Time of Day</Typography>
+      <Typography>Time of Day (Not Yet Functional)</Typography>
       <Slider
         min={9}
         max={19}
         defaultValue={12}
         valueLabelDisplay="auto"
         marks={times}
-        value={12}
-        // onChange={() =>
-        //   console.log('something changed')
-        // }
+        value={selectedTime}
+        onChange={(e, time) => {
+            setSelectedTime(time);
+          }
+        }
       />
     </Box>
   )

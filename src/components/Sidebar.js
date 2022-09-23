@@ -19,7 +19,10 @@ const Sidebar = ({map}) => {
     hideBackdrop={true}
     >
       <div>
-        <Typography>Greenpoint Covid Sidewalk Density At Noon</Typography>
+        <Typography variant="h6">Greenpoint Covid Sidewalk Density</Typography>
+      </div>
+      <div>
+        <Typography>****Only showing info at Noon</Typography>
       </div>
       <Box sx={{ width: 240, p: 3}}>
         <TimeSlider />
@@ -36,6 +39,9 @@ const Sidebar = ({map}) => {
       <Box sx={{ width: 240, p: 3}}>
         <Button variant="contained" onClick={ () => {handleClick('office_at_noon')}}>Office Queue</Button>
       </Box>
+      <div>
+        <Typography align="center">click on an icon to see a head count</Typography>
+      </div>
     </Drawer>
   )
 }
