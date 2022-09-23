@@ -14,13 +14,13 @@ const TimeSlider = () => {
       <Slider
         min={9}
         max={19}
-        defaultValue={9}
+        defaultValue={12}
         valueLabelDisplay="auto"
         marks={times}
-        value={9}
-        onChange={() =>
-          console.log('something changed')
-        }
+        value={12}
+        // onChange={() =>
+        //   console.log('something changed')
+        // }
       />
     </Box>
   )

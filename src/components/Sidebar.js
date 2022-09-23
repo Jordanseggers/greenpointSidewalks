@@ -1,28 +1,54 @@
-import { Drawer, IconButton, Typography, Box, Button } from '@mui/material';
-import {ChevronLeft} from '@mui/icons-material';
+import { Drawer, Typography, Box, Button } from '@mui/material';
 import TimeSlider from './TimeSlider.js';
 
-const Sidebar = ({isOpen, setIsOpen, map}) => {
+const Sidebar = ({map}) => {
+  
+  const handleClick = (layerName) => {
+    let visibility = map.current.getLayoutProperty(layerName, 'visibility');
+
+    if (visibility === 'visible') {
+      map.current.setLayoutProperty(layerName, 'visibility', 'none');
+    } else {
+      map.current.setLayoutProperty(layerName, 'visibility', 'visible');
+    }
+  }
+
   return (
     <Drawer
-    variant='persistent'
+    variant='permanent'
     hideBackdrop={true}
-    open={isOpen}
     >
       <div>
         <Typography>Greenpoint Covid Sidewalk Density</Typography>
-        <IconButton onClick={() => setIsOpen(false)}>
-          <ChevronLeft fontSize='large' />
-        </IconButton>
       </div>
       <Box sx={{ width: 240, p: 3}}>
         <TimeSlider />
       </Box>
       <Box sx={{ width: 240, p: 3}}>
-        <Button variant="contained" onClick={() => {map.current.setLayoutProperty('pharmacy_at_noon', 'visibility', 'none')}}>Pharmacy Queue</Button>
+        <Button variant="contained" onClick={ () => {handleClick('pharmacy_at_noon')}}>Pharmacy Queue</Button> 
+      </Box>
+      <Box sx={{ width: 240, p: 3}}>
+        <Button variant="contained" onClick={ () => {handleClick('restaurant_at_noon')}}>Restaurant Queue</Button>
+      </Box>
+      <Box sx={{ width: 240, p: 3}}>
+        <Button variant="contained" onClick={ () => {handleClick('subway_at_noon')}}>Subway Queue</Button>
+      </Box>
+      <Box sx={{ width: 240, p: 3}}>
+        <Button variant="contained" onClick={ () => {handleClick('office_at_noon')}}>Office Queue</Button>
       </Box>
     </Drawer>
   )
 }
 
 export default Sidebar
+
+//const [noonPharmacy, setNoonPharmacy] = useState('visible');
+
+// const handleClick = (e) => {
+//   map.current.setLayoutProperty('pharmacy_at_noon', 'visibility', {noonPharmacy});
+//   if (noonPharmacy === 'visible') {
+//     setNoonPharmacy('none');
+//   } else {
+//     setNoonPharmacy('visible');
+//   }
+// }

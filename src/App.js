@@ -1,8 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './App.css';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
-import { Box, IconButton } from '@mui/material';
-import { Menu } from '@mui/icons-material';
 
 import Sidebar from './components/Sidebar';
 
@@ -14,7 +12,6 @@ function App() {
   const [lng, setLng] = useState(-73.951870);
   const [lat, setLat] = useState(40.730964);
   const [zoom, setZoom] = useState(15);
-  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
@@ -58,18 +55,7 @@ function App() {
   return (
     <div>
       <div>
-        <Box sx={{ mr: 1 }}>
-          <IconButton
-            size="large"
-            color="inherit"
-            onClick={() => setIsOpen(true)}
-          >
-            <Menu />
-          </IconButton>
-        </Box>
-      </div>
-      <div>
-        <Sidebar {...{isOpen, setIsOpen, map}}/>
+        <Sidebar {...{map}}/>
       </div>
       <div ref={mapContainer} className="map-container" />
       <div className="zoom">
