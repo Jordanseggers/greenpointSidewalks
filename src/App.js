@@ -33,8 +33,32 @@ function App() {
     setZoom(map.current.getZoom().toFixed(2));
     });
     
-    map.current.on('click', (e) => {
-      console.log(`A click event has occurred at ${e.lngLat}`);
+
+    /* When a click event occurs on a feature in the layer that contains all 
+      sidewalk density info, open a popup at the
+     location of the feature, with description HTML from its properties. */
+    map.current.on('click', 'data-driven-circles', (e) => {
+      console.log(`A click event has occurred`);
+
+      // Copy coordinates array.
+      const coordinates = e.features[0].geometry.coordinates[0]//.slice();
+      const description = e.features[0].properties.description;
+
+      /* Ensure that if the map is zoomed out such that multiple
+       copies of the feature are visible, the popup appears
+       over the copy being pointed to. */
+      // console.log(e.lngLat);
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+   
+      let pop = new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .setText('hey I popped up')
+        .addTo(map.current);
+
+      console.log(pop);
     });
 
     map.current.on('mouseenter', ['pharmacy_at_noon', 'data-driven-circles' ], (e) => {
