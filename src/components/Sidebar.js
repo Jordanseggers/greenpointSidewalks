@@ -19,7 +19,7 @@ const Sidebar = ({map}) => {
     hideBackdrop={true}
     >
       <div>
-        <Typography>Greenpoint Covid Sidewalk Density</Typography>
+        <Typography>Greenpoint Covid Sidewalk Density At Noon</Typography>
       </div>
       <Box sx={{ width: 240, p: 3}}>
         <TimeSlider />
@@ -41,14 +41,3 @@ const Sidebar = ({map}) => {
 }
 
 export default Sidebar
-
-//const [noonPharmacy, setNoonPharmacy] = useState('visible');
-
-// const handleClick = (e) => {
-//   map.current.setLayoutProperty('pharmacy_at_noon', 'visibility', {noonPharmacy});
-//   if (noonPharmacy === 'visible') {
-//     setNoonPharmacy('none');
-//   } else {
-//     setNoonPharmacy('visible');
-//   }
-// }
