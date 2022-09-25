@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-mapbox/static/css/main.70e95069.css",
-    "main.js": "/react-mapbox/static/js/main.9c91302d.js",
-    "static/js/787.e773ec69.chunk.js": "/react-mapbox/static/js/787.e773ec69.chunk.js",
-    "index.html": "/react-mapbox/index.html",
-    "main.70e95069.css.map": "/react-mapbox/static/css/main.70e95069.css.map",
-    "main.9c91302d.js.map": "/react-mapbox/static/js/main.9c91302d.js.map",
-    "787.e773ec69.chunk.js.map": "/react-mapbox/static/js/787.e773ec69.chunk.js.map"
+    "main.css": "/greenpointsidewalks/static/css/main.70e95069.css",
+    "main.js": "/greenpointsidewalks/static/js/main.ce612203.js",
+    "static/js/787.63402322.chunk.js": "/greenpointsidewalks/static/js/787.63402322.chunk.js",
+    "index.html": "/greenpointsidewalks/index.html",
+    "main.70e95069.css.map": "/greenpointsidewalks/static/css/main.70e95069.css.map",
+    "main.ce612203.js.map": "/greenpointsidewalks/static/js/main.ce612203.js.map",
+    "787.63402322.chunk.js.map": "/greenpointsidewalks/static/js/787.63402322.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.70e95069.css",
-    "static/js/main.9c91302d.js"
+    "static/js/main.ce612203.js"
   ]
 }
