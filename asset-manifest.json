@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-mapbox/static/css/main.70e95069.css",
+    "main.js": "/react-mapbox/static/js/main.9c91302d.js",
+    "static/js/787.e773ec69.chunk.js": "/react-mapbox/static/js/787.e773ec69.chunk.js",
+    "index.html": "/react-mapbox/index.html",
+    "main.70e95069.css.map": "/react-mapbox/static/css/main.70e95069.css.map",
+    "main.9c91302d.js.map": "/react-mapbox/static/js/main.9c91302d.js.map",
+    "787.e773ec69.chunk.js.map": "/react-mapbox/static/js/787.e773ec69.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.70e95069.css",
+    "static/js/main.9c91302d.js"
+  ]
+}
